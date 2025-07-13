@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FAQ</title>
+
+  <!-- FontAwesome Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .faq-item {
+      margin-bottom: 15px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .question {
+      cursor: pointer;
+      background-color: #f0f0f0;
+      padding: 12px 15px;
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: bold;
+    }
+
+    .answer {
+      display: none;
+      padding: 12px 15px;
+      background-color: #e8e8e8;
+      border-radius: 0 0 5px 5px;
+    }
+
+    .icon {
+      font-size: 14px;
+      transition: transform 0.3s ease;
+    }
+
+    .icon.rotate {
+      transform: rotate(180deg);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Frequently Asked Questions</h1>
+
+  <div class="faq-item">
+    <div class="question">
+      What is your return policy?
+      <i class="fas fa-plus icon"></i>
+    </div>
+    <div class="answer">We accept returns within 30 days of purchase.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="question">
+      How do I track my order?
+      <i class="fas fa-plus icon"></i>
+    </div>
+    <div class="answer">You can track your order through your account page.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="question">
+      Do you offer customer support?
+      <i class="fas fa-plus icon"></i>
+    </div>
+    <div class="answer">Yes, 24/7 customer support is available.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="question">
+      Can I change my shipping address?
+      <i class="fas fa-plus icon"></i>
+    </div>
+    <div class="answer">Yes, before the order is shipped, you can update your address.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="question">
+      What payment methods do you accept?
+      <i class="fas fa-plus icon"></i>
+    </div>
+    <div class="answer">We accept Visa, Mastercard, and PayPal.</div>
+  </div>
+
+  <!-- jQuery Script -->
+  <script>
+    $(".question").click(function () {
+      const answer = $(this).next(".answer");
+      const icon = $(this).find(".icon");
+
+      // Hide all other answers and reset icons
+      $(".answer").not(answer).slideUp();
+      $(".icon").not(icon).removeClass("fa-minus").addClass("fa-plus");
+
+      // Toggle current answer
+      answer.slideToggle();
+
+      // Toggle icon
+      icon.toggleClass("fa-plus fa-minus");
+    });
+  </script>
+
+</body>
+</html>
